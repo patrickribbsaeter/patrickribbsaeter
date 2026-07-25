@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="380" viewBox="0 0 1200 380" role="img" aria-labelledby="title desc">
+  <title id="title">Patrick Ribbsaeter — AI Systems Architect and Founding Engineer</title>
+  <desc id="desc">A dark precision-engineered banner with a kinetic systems visualization, architectural grid, and Patrick Ribbsaeter's professional positioning.</desc>
+  <defs>
+    <style>
+      .signal{stroke-dasharray:10 18;animation:signalFlow 7s linear infinite}
+      .node-a{animation:nodePulse 2.8s ease-in-out infinite}
+      .node-b{animation:nodePulse 2.8s ease-in-out 1.4s infinite}
+      .orbit{transform-origin:1018px 190px;animation:orbitSpin 18s linear infinite}
+      .orbit-reverse{transform-origin:1018px 190px;animation:orbitSpin 12s linear infinite reverse}
+      .core{animation:corePulse 3.6s ease-in-out infinite}
+      .scan{animation:scanMove 8s ease-in-out infinite}
+      @keyframes signalFlow{to{stroke-dashoffset:-112}}
+      @keyframes nodePulse{0%,100%{opacity:.38}50%{opacity:1}}
+      @keyframes orbitSpin{to{transform:rotate(360deg)}}
+      @keyframes corePulse{0%,100%{opacity:.55}50%{opacity:1}}
+      @keyframes scanMove{0%,12%{transform:translateX(-260px);opacity:0}24%{opacity:.12}55%{opacity:.06}72%,100%{transform:translateX(1220px);opacity:0}}
+      @media (prefers-reduced-motion:reduce){
+        .signal,.node-a,.node-b,.orbit,.orbit-reverse,.core,.scan{animation:none}
+      }
+    </style>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#050A12"/>
+      <stop offset=".58" stop-color="#0A1423"/>
+      <stop offset="1" stop-color="#10243A"/>
+    </linearGradient>
+    <linearGradient id="cyan" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#00B8D9"/>
+      <stop offset=".5" stop-color="#5FE7FF"/>
+      <stop offset="1" stop-color="#2F81F7"/>
+    </linearGradient>
+    <radialGradient id="halo" cx=".86" cy=".18" r=".72">
+      <stop offset="0" stop-color="#26D9FF" stop-opacity=".20"/>
+      <stop offset=".55" stop-color="#1379A5" stop-opacity=".06"/>
+      <stop offset="1" stop-color="#07111E" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#B8D8EE" stroke-opacity=".055"/>
+    </pattern>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="frame"><rect width="1200" height="380" rx="26"/></clipPath>
+  </defs>
+
+  <g clip-path="url(#frame)">
+    <rect width="1200" height="380" fill="url(#background)"/>
+    <rect width="1200" height="380" fill="url(#halo)"/>
+    <rect width="1200" height="380" fill="url(#grid)"/>
+    <path class="scan" d="M-180 0h110L90 380H-20Z" fill="#BFF5FF" opacity="0"/>
+    <path d="M0 342H1200" stroke="#A8DFF0" stroke-opacity=".12"/>
+    <path d="M760 0V380" stroke="#A8DFF0" stroke-opacity=".08"/>
+
+    <g class="signal" opacity=".58" fill="none" stroke="url(#cyan)" stroke-width="1.5">
+      <path d="M825 72h101l29 29h113"/>
+      <path d="M790 126h83l32 32h181"/>
+      <path d="M861 256h84l31-31h149"/>
+      <path d="M804 306h118l28-28h97"/>
+      <circle class="node-a" cx="825" cy="72" r="4" fill="#5FE7FF" stroke="none"/>
+      <circle class="node-b" cx="1068" cy="101" r="4" fill="#2F81F7" stroke="none"/>
+      <circle class="node-b" cx="790" cy="126" r="4" fill="#00B8D9" stroke="none"/>
+      <circle class="node-a" cx="1086" cy="158" r="4" fill="#5FE7FF" stroke="none"/>
+      <circle class="node-a" cx="861" cy="256" r="4" fill="#2F81F7" stroke="none"/>
+      <circle class="node-b" cx="1125" cy="225" r="4" fill="#00B8D9" stroke="none"/>
+    </g>
+
+    <g>
+      <circle cx="1018" cy="190" r="82" fill="#07111D" stroke="#5FE7FF" stroke-opacity=".18"/>
+      <circle class="orbit" cx="1018" cy="190" r="70" fill="none" stroke="url(#cyan)" stroke-width="1.5" stroke-dasharray="52 18 6 24"/>
+      <circle class="orbit-reverse" cx="1018" cy="190" r="49" fill="none" stroke="#5FE7FF" stroke-opacity=".55" stroke-width="1.2" stroke-dasharray="22 14"/>
+      <g class="orbit">
+        <circle cx="1018" cy="120" r="6" fill="#5FE7FF"/>
+        <circle cx="1079" cy="224" r="5" fill="#2F81F7"/>
+        <circle cx="957" cy="224" r="4" fill="#00B8D9"/>
+      </g>
+      <g class="core">
+        <path d="m1018 158 28 16v32l-28 16-28-16v-32Z" fill="#0A2031" stroke="url(#cyan)" stroke-width="2"/>
+        <circle cx="1018" cy="190" r="12" fill="url(#cyan)"/>
+        <circle cx="1018" cy="190" r="4" fill="#F4F9FF"/>
+      </g>
+      <path d="M934 190h35m98 0h35M1018 106v35m0 98v35" stroke="#5FE7FF" stroke-opacity=".3" stroke-dasharray="4 8"/>
+    </g>
+
+    <g font-family="Inter,Segoe UI,Arial,sans-serif">
+      <text x="72" y="78" fill="#75DDF0" font-size="14" font-weight="700" letter-spacing="4.2">AI SYSTEMS ARCHITECT  /  FOUNDING ENGINEER</text>
+      <text x="68" y="164" fill="#F4F9FF" font-size="57" font-weight="800" letter-spacing="-1.8">PATRICK</text>
+      <text x="68" y="224" fill="#F4F9FF" font-size="57" font-weight="800" letter-spacing="-1.8">RIBBSAETER</text>
+      <rect x="72" y="246" width="590" height="3" rx="1.5" fill="url(#cyan)" filter="url(#glow)"/>
+      <text x="72" y="293" fill="#C8D8E8" font-size="23" font-weight="600">I build systems that do the work.</text>
+      <text x="72" y="330" fill="#7F9BB5" font-size="14" font-weight="600" letter-spacing="2.25">AI INFRASTRUCTURE  ·  AUTONOMOUS SYSTEMS  ·  PRODUCTION SOFTWARE</text>
+    </g>
+
+    <text x="1128" y="354" text-anchor="end" fill="#6D8BA5" font-family="Consolas,monospace" font-size="11" letter-spacing="1.6">CH / 47.3769° N</text>
+  </g>
+</svg>
