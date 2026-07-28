@@ -1,0 +1,124 @@
+name: Refresh profile visitor telemetry
+
+on:
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-visitor-telemetry
+  cancel-in-progress: true
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Check out telemetry branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: metrics
+          fetch-depth: 1
+
+      - name: Refresh factual page-hit count
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          raw_count="$(python3 - <<'PY'
+          import re
+          import sys
+          import urllib.request
+
+          url = (
+              "https://komarev.com/ghpvc/"
+              "?username=patrickribbsaeter&label=PROFILE%20VIEWS&style=flat-square"
+          )
+          request = urllib.request.Request(url, headers={"User-Agent": "GitHub-Actions"})
+
+          with urllib.request.urlopen(request, timeout=20) as response:
+              counter_svg = response.read().decode("utf-8")
+
+          patterns = (
+              r'aria-label="[^"]*?:\s*([0-9][0-9,]*)"',
+              r'<text[^>]*font-weight="bold"[^>]*>([0-9][0-9,]*)</text>',
+              r'<title>[^<]*?([0-9][0-9,]*)</title>',
+          )
+          match = next(
+              (candidate for pattern in patterns if (candidate := re.search(pattern, counter_svg))),
+              None,
+          )
+          text_counts = re.findall(
+              r'<text[^>]*>\s*([0-9][0-9,]*)\s*</text>',
+              counter_svg,
+          )
+          if match:
+              count = match.group(1)
+          elif text_counts:
+              count = text_counts[-1]
+          else:
+              print("Could not extract a numeric profile-view count.", file=sys.stderr)
+              raise SystemExit(1)
+
+          print(count.replace(",", ""))
+          PY
+          )"
+
+          current_offset="$(sed -n 's/.*refresh-offset: \([0-9][0-9]*\).*/\1/p' profile-views.svg)"
+          if [[ ! "$current_offset" =~ ^[0-9]+$ ]]; then
+            echo "Could not read the refresh offset."
+            exit 1
+          fi
+
+          next_offset=$((current_offset + 1))
+          visible_count=$((raw_count - next_offset))
+          if (( visible_count < 0 )); then
+            visible_count=0
+          fi
+
+          padded_count="$(printf '%06d' "$visible_count")"
+          updated_at="$(date -u +'%Y-%m-%d %H:%M UTC')"
+
+          python3 - "$next_offset" "$visible_count" "$padded_count" "$updated_at" <<'PY'
+          from pathlib import Path
+          import re
+          import sys
+
+          path = Path("profile-views.svg")
+          svg = path.read_text(encoding="utf-8")
+          offset, count, padded, updated = sys.argv[1:]
+
+          replacements = (
+              (r"refresh-offset: \d+", f"refresh-offset: {offset}"),
+              (r"(<desc id=\"desc\">).*?(</desc>)", rf"\g<1>{count} recorded GitHub profile page hits.\g<2>"),
+              (r"(<text id=\"view-count\"[^>]*>).*?(</text>)", rf"\g<1>{padded}\g<2>"),
+              (r"(<text id=\"updated-at\"[^>]*>).*?(</text>)", rf"\g<1>SYNCED {updated}\g<2>"),
+          )
+
+          for pattern, replacement in replacements:
+              svg, changed = re.subn(pattern, replacement, svg, count=1)
+              if changed != 1:
+                  raise SystemExit(f"Expected exactly one match for {pattern!r}, got {changed}")
+
+          path.write_text(svg, encoding="utf-8")
+          PY
+
+      - name: Publish refreshed telemetry
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if git diff --quiet -- profile-views.svg; then
+            echo "Telemetry is already current."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add profile-views.svg
+          git commit --amend --no-edit
+          git push --force-with-lease origin HEAD:metrics
