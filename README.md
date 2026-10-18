@@ -12,7 +12,7 @@
 
 <br /><br /><br />
 
-👉 **[github.com/patrickswedish](https://github.com/patrickswedish)**
+### [github.com/patrickswedish](https://github.com/patrickswedish)
 
 <br /><br />
 
