@@ -128,7 +128,7 @@
     <!-- Typography Content Hierarchy (Left / Center) -->
     <!-- Hallmark Bar -->
     <g transform="translate(68, 72)">
-      <text x="0" y="0" class="hallmark">PATRICK RIBBSAETER &bull; ARCHIVAL GATEWAY &bull; VERIFIED REDIRECTION</text>
+      <text x="0" y="0" class="hallmark">PATRICK RIBBSAETER &#8226; ARCHIVAL GATEWAY &#8226; VERIFIED REDIRECTION</text>
       <!-- Dual Diamond Gold Divider -->
       <line x1="0" y1="18" x2="380" y2="18" stroke="#D4AF37" stroke-opacity="0.30" stroke-width="1" />
       <polygon points="392,14 396,18 392,22 388,18" fill="#D4AF37" />
@@ -166,8 +166,8 @@
 
     <!-- Bottom Technical Hallmark & Coordinates -->
     <g transform="translate(68, 365)">
-      <text x="0" y="0" class="coord">ZURICH &bull; AMSTERDAM &bull; EINDHOVEN &bull; RIBBSAETER SYSTEMS</text>
-      <text x="792" y="0" class="coord" text-anchor="end">CH / 47.3769&deg; N &bull; SOVEREIGN CORE</text>
+      <text x="0" y="0" class="coord">ZURICH &#8226; AMSTERDAM &#8226; EINDHOVEN &#8226; RIBBSAETER SYSTEMS</text>
+      <text x="792" y="0" class="coord" text-anchor="end">CH / 47.3769&#176; N &#8226; SOVEREIGN CORE</text>
     </g>
   </g>
 </svg>
