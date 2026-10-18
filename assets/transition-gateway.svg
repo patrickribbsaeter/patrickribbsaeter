@@ -1,0 +1,185 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="440" viewBox="0 0 1200 440" role="img" aria-labelledby="title desc">
+  <title id="title">Patrick Ribbsaeter - Sovereign Engineering Gateway</title>
+  <desc id="desc">Precision-engineered Swiss luxury transition gateway directing all visitors to @patrickswedish.</desc>
+  <defs>
+    <style>
+      .signal{stroke-dasharray:10 18;animation:signalFlow 7s linear infinite}
+      .node-a{animation:nodePulse 3s ease-in-out infinite}
+      .node-b{animation:nodePulse 3s ease-in-out 1.5s infinite}
+      .orbit{transform-origin:1040px 220px;animation:orbitSpin 22s linear infinite}
+      .orbit-rev{transform-origin:1040px 220px;animation:orbitSpin 14s linear infinite reverse}
+      .core{animation:corePulse 3.5s ease-in-out infinite}
+      .scan{animation:scanMove 9s ease-in-out infinite}
+      .btn-pulse{animation:btnGlow 3s ease-in-out infinite}
+      .gold-shimmer{animation:shimmer 6s ease-in-out infinite}
+
+      @keyframes signalFlow{to{stroke-dashoffset:-112}}
+      @keyframes nodePulse{0%,100%{opacity:.35}50%{opacity:1}}
+      @keyframes orbitSpin{to{transform:rotate(360deg)}}
+      @keyframes corePulse{0%,100%{opacity:.45;transform:scale(0.98)}50%{opacity:.95;transform:scale(1.02)}}
+      @keyframes scanMove{0%,15%{transform:translateX(-280px);opacity:0}28%{opacity:.15}58%{opacity:.07}75%,100%{transform:translateX(1240px);opacity:0}}
+      @keyframes btnGlow{0%,100%{stroke-opacity:.5;filter:drop-shadow(0 0 6px rgba(212,175,55,0.3))}50%{stroke-opacity:1;filter:drop-shadow(0 0 16px rgba(212,175,55,0.7))}}
+      @keyframes shimmer{0%,100%{stop-color:#FFFDF0}50%{stop-color:#F5D77F}}
+
+      @media (prefers-reduced-motion:reduce){
+        .signal,.node-a,.node-b,.orbit,.orbit-rev,.core,.scan,.btn-pulse{animation:none}
+      }
+
+      .hallmark{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:11.5px;font-weight:700;letter-spacing:0.36em;fill:#D4AF37}
+      .hero-title{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:35px;font-weight:800;letter-spacing:0.04em}
+      .body-sub{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:14.5px;font-weight:400;letter-spacing:0.02em}
+      .cta-text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:15px;font-weight:800;letter-spacing:0.12em;fill:#FFFFFF}
+      .coord{font-family:'Consolas','SFMono-Regular',Menlo,monospace;font-size:10.5px;letter-spacing:0.18em;fill:#6F7D95}
+    </style>
+
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#04070D"/>
+      <stop offset="55%" stop-color="#080E18"/>
+      <stop offset="100%" stop-color="#0E1726"/>
+    </linearGradient>
+
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFFDF0" />
+      <stop offset="30%" stop-color="#F7E29C" />
+      <stop offset="70%" stop-color="#D4AF37" />
+      <stop offset="100%" stop-color="#B38B1E" />
+    </linearGradient>
+
+    <linearGradient id="goldFrame" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4AF37" stop-opacity="0.80" />
+      <stop offset="50%" stop-color="#FDE8A2" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#D4AF37" stop-opacity="0.80" />
+    </linearGradient>
+
+    <linearGradient id="cyanGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#00B8D9"/>
+      <stop offset="50%" stop-color="#5FE7FF"/>
+      <stop offset="100%" stop-color="#2F81F7"/>
+    </linearGradient>
+
+    <radialGradient id="ambientHalo" cx="0.85" cy="0.5" r="0.6">
+      <stop offset="0%" stop-color="#26D9FF" stop-opacity="0.14"/>
+      <stop offset="50%" stop-color="#1379A5" stop-opacity="0.04"/>
+      <stop offset="100%" stop-color="#04070D" stop-opacity="0"/>
+    </radialGradient>
+
+    <pattern id="archGrid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#68A5D6" stroke-opacity="0.05" />
+    </pattern>
+
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <clipPath id="viewportClip">
+      <rect width="1200" height="440" rx="16" />
+    </clipPath>
+  </defs>
+
+  <g clip-path="url(#viewportClip)">
+    <!-- Base Obsidian Canvas -->
+    <rect width="1200" height="440" fill="url(#bgGrad)"/>
+    <rect width="1200" height="440" fill="url(#ambientHalo)"/>
+    <rect width="1200" height="440" fill="url(#archGrid)"/>
+
+    <!-- Kinetic Specular Light Scan -->
+    <path class="scan" d="M -180 0 L -80 0 L 60 440 L -40 440 Z" fill="#BFF5FF" opacity="0"/>
+
+    <!-- Subtle Architectural Axis Lines -->
+    <path d="M 0 395 L 1200 395" stroke="#A8DFF0" stroke-opacity="0.08"/>
+    <path d="M 860 0 L 860 440" stroke="#A8DFF0" stroke-opacity="0.06"/>
+
+    <!-- Precision Swiss Hairline Borders -->
+    <rect x="16" y="16" width="1168" height="408" rx="10" fill="none" stroke="url(#goldFrame)" stroke-width="1.2" />
+    <rect x="22" y="22" width="1156" height="396" rx="8" fill="none" stroke="#FFFFFF" stroke-opacity="0.035" stroke-width="1" />
+
+    <!-- Corner Precision Bracket Accents -->
+    <path d="M 16 34 L 16 16 L 34 16" stroke="#D4AF37" stroke-width="2.5" fill="none" />
+    <path d="M 1184 34 L 1184 16 L 1166 16" stroke="#D4AF37" stroke-width="2.5" fill="none" />
+    <path d="M 16 406 L 16 424 L 34 424" stroke="#D4AF37" stroke-width="2.5" fill="none" />
+    <path d="M 1184 406 L 1184 424 L 1166 424" stroke="#D4AF37" stroke-width="2.5" fill="none" />
+
+    <!-- Kinetic Systems Visualization (Right Flank) -->
+    <g class="signal" opacity="0.60" fill="none" stroke="url(#cyanGrad)" stroke-width="1.4">
+      <path d="M 890 85 h 70 l 25 25 h 90" />
+      <path d="M 870 150 h 65 l 28 28 h 115" />
+      <path d="M 910 295 h 75 l 28 -28 h 95" />
+      <path d="M 880 345 h 90 l 24 -24 h 80" />
+      <circle class="node-a" cx="890" cy="85" r="3.5" fill="#5FE7FF" stroke="none" />
+      <circle class="node-b" cx="1075" cy="110" r="3.5" fill="#2F81F7" stroke="none" />
+      <circle class="node-b" cx="870" cy="150" r="3.5" fill="#00B8D9" stroke="none" />
+      <circle class="node-a" cx="1078" cy="178" r="3.5" fill="#5FE7FF" stroke="none" />
+      <circle class="node-a" cx="910" cy="295" r="3.5" fill="#2F81F7" stroke="none" />
+      <circle class="node-b" cx="1108" cy="267" r="3.5" fill="#00B8D9" stroke="none" />
+    </g>
+
+    <!-- Orbital Telemetry Rings -->
+    <g>
+      <circle cx="1040" cy="220" r="86" fill="#060C16" stroke="#5FE7FF" stroke-opacity="0.16"/>
+      <circle class="orbit" cx="1040" cy="220" r="74" fill="none" stroke="url(#cyanGrad)" stroke-width="1.5" stroke-dasharray="56 20 8 26"/>
+      <circle class="orbit-rev" cx="1040" cy="220" r="52" fill="none" stroke="#D4AF37" stroke-opacity="0.55" stroke-width="1.2" stroke-dasharray="24 16"/>
+      <g class="orbit">
+        <circle cx="1040" cy="146" r="5" fill="#5FE7FF"/>
+        <circle cx="1105" cy="256" r="4.5" fill="#D4AF37"/>
+        <circle cx="978" cy="256" r="4" fill="#00B8D9"/>
+      </g>
+      <g class="core">
+        <polygon points="1040,188 1068,204 1068,236 1040,252 1012,236 1012,204" fill="#0B1B2B" stroke="url(#goldFrame)" stroke-width="1.8"/>
+        <circle cx="1040" cy="220" r="11" fill="url(#goldGradient)"/>
+        <circle cx="1040" cy="220" r="4" fill="#FFFFFF"/>
+      </g>
+      <path d="M 952 220 h 36 m 104 0 h 36 M 1040 132 v 36 m 0 104 v 36" stroke="#5FE7FF" stroke-opacity="0.25" stroke-dasharray="4 8"/>
+    </g>
+
+    <!-- Typography Content Hierarchy (Left / Center) -->
+    <!-- Hallmark Bar -->
+    <g transform="translate(68, 72)">
+      <text x="0" y="0" class="hallmark">PATRICK RIBBSAETER &bull; ARCHIVAL GATEWAY &bull; VERIFIED REDIRECTION</text>
+      <!-- Dual Diamond Gold Divider -->
+      <line x1="0" y1="18" x2="380" y2="18" stroke="#D4AF37" stroke-opacity="0.30" stroke-width="1" />
+      <polygon points="392,14 396,18 392,22 388,18" fill="#D4AF37" />
+      <line x1="404" y1="18" x2="720" y2="18" stroke="#D4AF37" stroke-opacity="0.30" stroke-width="1" />
+    </g>
+
+    <!-- Hero Headline -->
+    <g transform="translate(68, 150)">
+      <text x="0" y="0" class="hero-title" fill="url(#goldGradient)">ALL ACTIVE SYSTEMS HAVE MOVED</text>
+    </g>
+
+    <!-- Explanatory Narrative Body -->
+    <g transform="translate(68, 192)">
+      <text x="0" y="0" class="body-sub" fill="#D0D7E5">All active engineering, distributed AI infrastructure, and upstream open-source</text>
+      <text x="0" y="24" class="body-sub" fill="#8C96A8">contributions have permanently migrated to my sovereign engineering profile.</text>
+    </g>
+
+    <!-- Master Action Card / CTA Button -->
+    <g transform="translate(68, 252)">
+      <a href="https://github.com/patrickswedish" target="_blank" rel="noopener noreferrer">
+        <rect class="btn-pulse" width="460" height="70" rx="35" fill="#0C1320" stroke="url(#goldFrame)" stroke-width="1.8" />
+        
+        <!-- GitHub Vector Icon Badge -->
+        <circle cx="44" cy="35" r="18" fill="#D4AF37" opacity="0.12" />
+        <path d="M 44 24 C 37.92 24 33 28.92 33 35 C 33 39.86 36.16 43.98 40.52 45.43 C 41.07 45.53 41.27 45.2 41.27 44.9 C 41.27 44.65 41.26 43.95 41.26 43.06 C 38.2 43.72 37.55 41.6 37.55 41.6 C 37.05 40.32 36.33 39.99 36.33 39.99 C 35.33 39.31 36.41 39.33 36.41 39.33 C 37.52 39.41 38.1 40.47 38.1 40.47 C 39.08 42.15 40.68 41.67 41.31 41.39 C 41.41 40.68 41.7 40.19 42.01 39.92 C 39.57 39.64 37 38.7 37 34.48 C 37 33.28 37.42 32.3 38.13 31.53 C 38.02 31.25 37.64 30.14 38.24 28.63 C 38.24 28.63 39.16 28.33 41.25 29.75 C 42.13 29.51 43.07 29.39 44 29.39 C 44.93 29.39 45.87 29.51 46.75 29.75 C 48.84 28.33 49.76 28.63 49.76 28.63 C 50.36 30.14 49.98 31.25 49.87 31.53 C 50.58 32.3 51 33.28 51 34.48 C 51 38.71 48.42 39.64 45.97 39.91 C 46.37 40.25 46.72 40.92 46.72 41.96 C 46.72 43.46 46.71 44.67 46.71 44.9 C 46.71 45.2 46.91 45.54 47.47 45.43 C 51.84 43.97 55 39.86 55 35 C 55 28.92 50.08 24 44 24 Z" fill="#D4AF37" />
+
+        <!-- Button Copy -->
+        <text x="84" y="42" class="cta-text">VISIT @PATRICKSWEDISH</text>
+        
+        <!-- Directional Arrow Indicator -->
+        <g transform="translate(412, 35)">
+          <line x1="-12" y1="0" x2="10" y2="0" stroke="#D4AF37" stroke-width="2" stroke-linecap="round"/>
+          <polyline points="4,-5 10,0 4,5" fill="none" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+      </a>
+    </g>
+
+    <!-- Bottom Technical Hallmark & Coordinates -->
+    <g transform="translate(68, 365)">
+      <text x="0" y="0" class="coord">ZURICH &bull; AMSTERDAM &bull; EINDHOVEN &bull; RIBBSAETER SYSTEMS</text>
+      <text x="792" y="0" class="coord" text-anchor="end">CH / 47.3769&deg; N &bull; SOVEREIGN CORE</text>
+    </g>
+  </g>
+</svg>
